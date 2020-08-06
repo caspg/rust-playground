@@ -1,0 +1,13 @@
+version: '3.0'
+services:
+  app:
+    build:
+      context: .
+      args:
+        - REDIS_URL=redis://redis_db:6379
+    environment:
+      - REDIS_URL=redis://redis_db:6379
+    depends_on:
+    - redis_db
+  redis_db:
+    image: redis
